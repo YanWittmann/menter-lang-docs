@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print directory tree
-        run: tree .
+        run: tree ../
 
       # build documentation files
       - name: Build menter-documentation framework
