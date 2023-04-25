@@ -112,7 +112,7 @@ public class DocumentationGenerator {
             System.out.println("Could not clean target directory:" + e.getMessage());
         }
 
-        // copy files to output directory
+        // copy directories to output directory
         Arrays.stream(new File[]{
                 new File(guideBaseDir, "css"),
                 new File(guideBaseDir, "js"),
@@ -121,6 +121,17 @@ public class DocumentationGenerator {
         }).forEach(file -> {
             try {
                 FileUtils.copyDirectoryToDirectory(file, targetBaseDir);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        // copy files to output directory
+        Arrays.stream(new File[]{
+                new File(guideBaseDir, "index.html"),
+        }).forEach(file -> {
+            try {
+                FileUtils.copyFileToDirectory(file, targetBaseDir);
             } catch (IOException e) {
                 e.printStackTrace();
             }
