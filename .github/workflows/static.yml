@@ -24,6 +24,10 @@ jobs:
       # checkout repositories
       - name: Checkout current repo
         uses: actions/checkout@v2
+
+      - name: Print directory tree
+        run: tree ../../
+
       - name: Checkout menter-lang repo
         run: git clone https://github.com/YanWittmann/menter-lang
         working-directory: ./menter-lang
