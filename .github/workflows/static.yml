@@ -1,4 +1,4 @@
-name: Build documentation and deploy static content to Pages
+name: Build and deploy documentation
 
 on:
   push:
@@ -40,6 +40,12 @@ jobs:
         run: tree ../../
 
       # deploy to GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./doc/target/site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
