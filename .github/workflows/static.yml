@@ -33,13 +33,8 @@ jobs:
         run: mvn install
         working-directory: ./menter-documentation
       - name: Build documentation files
-        run: |
-          mvn package
-          mkdir -p public
-          cp -R menter-documentation/doc/target/* public/
+        run: mvn package
         working-directory: ./doc
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # deploy to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -47,4 +42,4 @@ jobs:
         uses: actions/deploy-pages@v2
         with:
           branch: main
-          folder: public
+          folder: ./doc/target/site
