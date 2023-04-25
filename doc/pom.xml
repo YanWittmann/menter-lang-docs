@@ -33,7 +33,7 @@
                             <templateFile>guide/template.html</templateFile>
 
                             <externalProperties>
-                                <menter-dir>../../menter-lang</menter-dir>
+                                <menter-dir>../../../menter-lang</menter-dir>
                             </externalProperties>
                         </configuration>
                     </execution>
