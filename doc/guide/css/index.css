@@ -413,7 +413,7 @@ a:hover {
     color: var(--color-text-link-hover);
 }
 
-img {
+img:not(.no-default-style) {
     max-width: 100%;
     border-radius: 7px;
     box-shadow: 2px 2px 2px 1px var(--color-background-input-codebox);

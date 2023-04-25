@@ -82,16 +82,17 @@ public class DocumentationGenerator {
     }
 
     private static void developmentAccess(File guideBaseDir, File targetBaseDir, File structureFile, File templateFile) {
+        final HashMap<String, String> externalProperties = new HashMap<String, String>() {{
+            put("menter-dir", "D:/files/create/programming/projects/menter-lang-project-copy");
+        }};
         try {
-            generate(guideBaseDir, targetBaseDir, templateFile, structureFile, new HashMap<String, String>() {{
-                put("menter-dir", "D:/files/create/programming/projects/menter-lang-project-copy");
-            }});
+            generate(guideBaseDir, targetBaseDir, templateFile, structureFile, externalProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
         fileChangeListener(guideBaseDir, new String[]{"md", "html", "js", "css", "png", "txt"}, file -> {
             try {
-                generate(guideBaseDir, targetBaseDir, templateFile, structureFile, new HashMap<>());
+                generate(guideBaseDir, targetBaseDir, templateFile, structureFile, externalProperties);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -170,12 +171,12 @@ public class DocumentationGenerator {
             FileUtils.write(outFile, String.join("\n", outLines), StandardCharsets.UTF_8);
         }
 
-        // generate an index.json file for the search
+        // generate an chapters.json file for the search
         final JSONArray indexArray = new JSONArray();
         for (DocumentationPage documentationPage : documentationPages) {
             indexArray.put(documentationPage.toIndexObject());
         }
-        FileUtils.write(new File(targetBaseDir, "index.json"), indexArray.toString(), StandardCharsets.UTF_8);
+        FileUtils.write(new File(targetBaseDir, "chapters.json"), indexArray.toString(), StandardCharsets.UTF_8);
     }
 
     private static String formatSpecialCharacters(String str) {

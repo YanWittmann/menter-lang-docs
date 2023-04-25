@@ -2,9 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Menter Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/main-page.css">
+    <script src="js/interactive-codeboxes.js" defer></script>
+    <script src="js/documentation.js" defer></script>
 </head>
 <body>
-Test
+
+<div class="page-container">
+    <div class="segment-center-container">
+        <div class="segment-center" id="main-content-container">
+            <br><br>
+            <div>
+                <div class="main-page-hero-header">
+                    <img src="img/navbar_icon_main_page.webp" alt="Menter Logo" class="main-page-logo no-default-style">
+                    <div>
+                        <h1>Menter</h1>
+                        <span>A functional programming language written in Java.</span>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <p>
+                    Menter is a programming language that is <strong>built in Java</strong>, meaning that it can be run
+                    on any platform that supports Java. It has a strong emphasis on simplicity and ease of use.
+                </p>
+                <p>
+                    This collection of pages is a guide and documentation to the Menter programming language. Start
+                    with the <a href="introduction.html">introduction of the Menter Guide</a> to get a quick overview of
+                    the language and its features.
+                </p>
+
+                <h2>A Quick Sample</h2>
+                <p>
+                    Here&#x27;s a small program that creates an array, maps them to new values and filters them:
+                </p>
+                <div class="codebox-container codebox-fake"
+                     initialContent="numbers = range(1, 4);;;filterFunction = x -&gt; x &gt; 4;;;numbers.map(x -&gt; x * 2).filter(filterFunction)"
+                     interactive="true" result="[1, 2, 3, 4];;;(x) -&gt; { x &gt; 4 };;;[6, 8]">numbers = range(1,
+                    4);;;filterFunction = x -&gt; x &gt; 4;;;numbers.map(x -&gt; x * 2).filter(filterFunction)
+                </div>
+                <p>
+                    As you can see, Menter is a functional programming language, but supports object oriented
+                    programming as well. It is also a dynamically typed language, meaning that you don&#x27;t have to
+                </p>
+
+                <h2>What is this language?</h2>
+                <p>
+                    The main reason this language exists is to provide a simple, but powerful expression evaluator for
+                    the <a href="https://github.com/YanWittmann/launch-anything">Launch Anything</a> project. It is
+                    designed to be easy to use and to be able to be embedded into other projects.
+                </p>
+                <p>
+                    Another reason is, that I have always been interested in compilers/interpreters and wanted to
+                    finally try and dip my toes into the topic by creating a simple programming language.<br>
+                    Seeing as I mainly am a Java developer, I decided to write it in Java. This was also supported by
+                    the fact that the Launch Anything project is also written in Java.
+                </p>
+                <p>
+                    But to speak in buzzwords, Menter is a:<br>
+                    functional, single threaded, dynamically typed, interpreted, object oriented, garbage collected,
+                    statically scoped, expression based, programming language, that can be extended and adjusted for
+                    your needs with Java code.
+                </p>
+
+                <h2>Main Features</h2>
+
+                <h3>Functional programming</h3>
+                <p>
+                    Menter is a functional programming language, meaning that functions are first class citizens and
+                    can be passed around like any other value. It also supports higher order functions, meaning that
+                    functions can be passed to other functions and functions can return functions.
+                </p>
+                <div class="codebox-container codebox-fake"
+                     initialContent="add = (a, b) -&gt; a + b;;;apply(a, b, f) = f(a, b);;;apply(10, 5, add)"
+                     interactive="true" result="(a, b) -&gt; { a + b };;;(a, b, f) -&gt; { f(a, b) };;;15">add = (a, b)
+                    -&gt; a + b;;;apply(a, b, f) = f(a, b);;;apply(10, 5, add)
+                </div>
+
+                <h3>Useful operators</h3>
+                <p>
+                    Menter takes the regular operators that most languages have and adds some exiting new feature on
+                    top:
+                </p>
+                <div class="codebox-container codebox-fake"
+                     initialContent="10 |&gt; x -&gt; x * 2.21 &gt;| round(1) # pipeline operator;;;[1, 2] :: [3, 4] # concatenation operator;;;a += 10 # compound assignment operator:NEWLINE:a **= 2 # with any operator;;;add = (+) # operator functions:NEWLINE:add(10, 5)"
+                     interactive="true" result="22.1;;;[1, 2, 3, 4];;;100">10 |&gt; x -&gt; x * 2.21 &gt;| round(1) #
+                    pipeline operator;;;[1, 2] :: [3, 4] # concatenation operator;;;a += 10 # compound assignment
+                    operator
+                    a **= 2 # with any operator;;;add = (+) # operator functions
+                    add(10, 5)
+                </div>
+
+                <h3>Object oriented programming</h3>
+                <p>
+                    Menter also supports object-oriented programming. Custom types definitions are represented by
+                    functions that return a new object. These functions can be called with the <code>new</code>
+                    keyword.
+                </p>
+                <div class="codebox-container codebox-fake"
+                     initialContent="Person = (name, age) -&gt; {:NEWLINE:  # properties declaration via $fields:NEWLINE:  $fields: [name, age],:NEWLINE:  # custom fields:NEWLINE:  addAge: n -&gt; { self.age += n }:NEWLINE:};;;Student = (name, age, matric) -&gt; {:NEWLINE:  # inheritance by calling one or multiple constructors:NEWLINE:  $extends: Person(name, age),:NEWLINE:  # properties declaration via key: value:NEWLINE:  matric: matric:NEWLINE:};;;yan = new Student(&quot;Yan&quot;, 22, 123456) # instance creation"
+                     interactive="true"
+                     result="(name, age) -&gt; { {$fields: [name, age], addAge: (n) -&gt; { self.age += n }} };;;(name, age, matric) -&gt; { {$extends: Person(name, age), $fields: [matric]} };;;{name: Yan, age: 22, addAge: (n) -&gt; { self.age += n }, matric: 123456}">
+                    Person = (name, age) -&gt; {
+                    # properties declaration via $fields
+                    $fields: [name, age],
+                    # custom fields
+                    addAge: n -&gt; { self.age += n }
+                    };;;Student = (name, age, matric) -&gt; {
+                    # inheritance by calling one or multiple constructors
+                    $extends: Person(name, age),
+                    # properties declaration via key: value
+                    matric: matric
+                    };;;yan = new Student(&quot;Yan&quot;, 22, 123456) # instance creation
+                </div>
+
+                <h3>Module concept</h3>
+                <p>
+                    To allow for multi-file projects, Menter supports modules. Modules can export symbols, which can
+                    then be imported by other modules. This allows for a clean separation of code and makes it easy to
+                    reuse code.
+                </p>
+                <div class="codebox-container codebox-fake"
+                     initialContent="data = []:NEWLINE:push = data.push:NEWLINE:pop = data.pop;;;export [push, pop] as list"
+                     interactive="true" codebox-id="listModule2" result="&lt;&lt;lambda&gt;&gt;;;;null">data = []
+                    push = data.push
+                    pop = data.pop;;;export [push, pop] as list
+                </div>
+                <div class="codebox-container codebox-fake"
+                     initialContent="import list inline;;;push(6);;;push(8);;;pop();;;pop()" interactive="true"
+                     after="listModule2" result="null;;;[6];;;[6, 8];;;8;;;6">import list
+                    inline;;;push(6);;;push(8);;;pop();;;pop()
+                </div>
+
+                <h3>Extensibility via Java</h3>
+                <p>
+                    Menter is designed to be easily extensible via Java. You can add new functions, operators, types
+                    and more. Learn more about this in the <a href="java.html">Java</a> section.
+                </p>
+                <br><br>
+
+                <p>
+                    Got you hooked? Get started with the
+                    <a href="introduction.html">introduction of the Menter Guide</a> to get a quick overview of the
+                    language and its features.
+                </p>
+
+                <br>
+                © 2023 <a href="https://yanwittmann.de">Yan Wittmann</a>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>

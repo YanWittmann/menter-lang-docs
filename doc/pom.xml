@@ -34,6 +34,7 @@
 
                             <externalProperties>
                                 <menter-dir>../../menter-lang</menter-dir>
+                                <menter-version>1.0-SNAPSHOT</menter-version>
                             </externalProperties>
                         </configuration>
                     </execution>

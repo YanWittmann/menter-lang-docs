@@ -1,0 +1,38 @@
+
+.main-page-logo {
+    width: min(max(50%, 200px), 350px);
+}
+
+.main-page-hero-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    gap: 4rem;
+}
+
+.main-page-hero-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.main-page-hero-header span {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .main-page-hero-header {
+        flex-direction: column;
+        height: 40vh;
+        gap: 0;
+    }
+
+    .main-page-hero-header h1 {
+        font-size: 3rem;
+    }
+
+    .main-page-hero-header span {
+        font-size: 1rem;
+    }
+}
