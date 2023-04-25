@@ -1,0 +1,50 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout menter-lang repo
+        uses: actions/checkout@v2
+        with:
+          repository: YanWittmann/menter-lang
+          ref: main
+          path: menter-lang
+      - name: Build menter-lang repo
+        run: mvn install
+        working-directory: ./menter-lang
+      - name: Checkout current repo
+        uses: actions/checkout@v2
+      - name: Build menter-documentation
+        run: mvn install
+        working-directory: ./menter-documentation
+      - name: Build and Deploy static content to Pages
+        run: |
+          mvn package
+          mkdir -p public
+          cp -R menter-documentation/doc/target/* public/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          branch: main
+          folder: public
