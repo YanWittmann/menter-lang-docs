@@ -22,17 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # checkout repositories
-      - name: Checkout menter-lang repo
-        uses: actions/checkout@v2
-        with:
-          repository: YanWittmann/menter-lang
-          ref: main
-          path: menter-lang
       - name: Checkout current repo
         uses: actions/checkout@v2
+      - name: Checkout menter-lang repo
+        run: git clone https://github.com/YanWittmann/menter-lang
+        working-directory: ./menter-lang
 
       - name: Print directory tree
-        run: tree ../../../
+        run: tree ../../
 
       # build documentation files
       - name: Build menter-documentation framework
