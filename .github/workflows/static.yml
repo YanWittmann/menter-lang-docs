@@ -36,6 +36,9 @@ jobs:
         run: mvn package
         working-directory: ./doc
 
+      - name: Print directory tree
+        run: tree ../../
+
       # deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
