@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Build documentation and deploy static content to Pages
 
 on:
   push:
@@ -21,27 +21,30 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # checkout repositories
       - name: Checkout menter-lang repo
         uses: actions/checkout@v2
         with:
           repository: YanWittmann/menter-lang
           ref: main
           path: menter-lang
-      - name: Build menter-lang repo
-        run: mvn install
-        working-directory: ./menter-lang
       - name: Checkout current repo
         uses: actions/checkout@v2
-      - name: Build menter-documentation
+
+      # build documentation files
+      - name: Build menter-documentation framework
         run: mvn install
         working-directory: ./menter-documentation
-      - name: Build and Deploy static content to Pages
+      - name: Build documentation files
         run: |
           mvn package
           mkdir -p public
           cp -R menter-documentation/doc/target/* public/
+        working-directory: ./doc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
