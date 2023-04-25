@@ -30,7 +30,7 @@ jobs:
 
       - name: Checkout menter-lang repo
         run: git clone https://github.com/YanWittmann/menter-lang
-        working-directory: ../menter-lang
+        working-directory: ../
 
       - name: Print directory tree
         run: tree ../../
