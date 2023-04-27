@@ -1,6 +1,6 @@
 # Basic Types and Values
 
-Menter includes a variety of basic data types such as numbers, strings, booleans, lists and maps/dicts/objects.  
+Menter includes a variety of basic data types such as numbers, strings, booleans, lists and objects.  
 Values are the smallest building block everything else is made of: Every expression can be evaluated into a single
 value, even control structures like `if`, `for`, and so on.
 

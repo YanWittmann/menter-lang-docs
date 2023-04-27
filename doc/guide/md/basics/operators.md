@@ -3,17 +3,22 @@
 Operators use the precedence from [Java](https://introcs.cs.princeton.edu/java/11precedence/), with the exception of the
 power operator, which comes from Python.
 
-Operators can be left-associative or right-associative, indicated by an interval-syntax:
+Operators can have values on the left and/or right, which Menter indicates by an interval-syntax:
 
-- `( )` parenthesis show that there _is a value_ on that side of the operator
+- `( )` round parenthesis show that there _is a value_ on that side of the operator
 - `[ ]` square brackets show that there _is **no** value_ on that side of the operator
 
-Basically, the round parenthesis indicate where the values are that are transformed by the operator.
+The round parenthesis indicate where the values are that are transformed by the operator.
 
 Examples for the `-` and `!` operators:
 
-- `-4` is right-associative: `[-) 4` the operator value is on the right side of the operator
-- `6 - 4` is left and right-associative: `6 (-) 4` there are values on both sides of the operator
+- `-4`  
+  `[-) 4` the operator value is on the right side of the operator
+- `6 - 4`  
+  `6 (-) 4` there are values on both sides of the operator
+
+And some more examples:
+
 - `!true` --> `[!) true`
 - `6!` --> `6 (!]`
 

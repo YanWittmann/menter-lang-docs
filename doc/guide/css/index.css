@@ -409,6 +409,10 @@ a {
     color: var(--color-text-link);
 }
 
+a.normal-text-color {
+    color: var(--color-text-base);
+}
+
 a:hover {
     color: var(--color-text-link-hover);
 }
@@ -617,5 +621,23 @@ blockquote {
     }
     100% {
         opacity: 0;
+    }
+}
+
+.svg-icon-text-color {
+    filter: invert(12%) sepia(41%) saturate(2131%) hue-rotate(17deg) brightness(92%) contrast(91%);
+}
+
+.svg-icon-text-color-inverted {
+    filter: invert(87%) sepia(13%) saturate(141%) hue-rotate(9deg) brightness(93%) contrast(89%);
+}
+
+@media (prefers-color-scheme: dark) {
+    .svg-icon-text-color {
+        filter: invert(87%) sepia(13%) saturate(141%) hue-rotate(9deg) brightness(93%) contrast(89%);
+    }
+
+    .svg-icon-text-color-inverted {
+        filter: invert(12%) sepia(41%) saturate(2131%) hue-rotate(17deg) brightness(92%) contrast(91%);
     }
 }

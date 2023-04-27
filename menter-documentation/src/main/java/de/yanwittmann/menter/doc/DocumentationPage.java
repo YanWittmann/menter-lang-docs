@@ -246,6 +246,10 @@ public class DocumentationPage {
         return title;
     }
 
+    public File getOriginFile() {
+        return originFile;
+    }
+
     public ATag renderSidebarItem() {
         return a(iff(parent != null, rawHtml("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")), text(title))
                 .withHref(getOutFileName())

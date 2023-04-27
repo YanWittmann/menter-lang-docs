@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
 
 public class DocumentationGenerator {
 
+    public static boolean DEVELOPMENT_MODE = false;
+
     public static void main(String[] args) throws IOException {
         final File baseDir = new File("doc");
         final File guideBaseDir = new File(baseDir, "guide");
@@ -30,6 +32,7 @@ public class DocumentationGenerator {
         final File templateFile = new File(guideBaseDir, "template.html");
 
         if (args.length == 0 || args[0].equals("development")) {
+            DEVELOPMENT_MODE = true;
             developmentAccess(guideBaseDir, targetBaseDir, structureFile, templateFile);
         } else if (args[0].equals("deploy")) {
             deploy(guideBaseDir, targetBaseDir, structureFile, templateFile);
@@ -165,7 +168,8 @@ public class DocumentationGenerator {
                 } else if (line.contains("{{ content.sidebar }}")) {
                     outLines.set(i, line.replace("{{ content.sidebar }}", sidebarContent));
                 } else if (line.contains("{{ script.js }}")) {
-                    outLines.set(i, line.replace("{{ script.js }}", additionalJsContent));
+                    outLines.set(i, line.replace("{{ script.js }}", additionalJsContent
+                                                                    + (DEVELOPMENT_MODE ? generateDebugScript(structureFile.getParentFile(), documentationPage) : "")));
                 }
             }
             FileUtils.write(outFile, String.join("\n", outLines), StandardCharsets.UTF_8);
@@ -225,6 +229,27 @@ public class DocumentationGenerator {
         }
 
         return pages;
+    }
+
+    /**
+     * Generates a floating button to the top right corner of the page which allows to navigate to the current file
+     * using the JetBrains IDE.<br>
+     * Link is of format: jetbrains://idea/navigate/reference?project=menter-lang-docs&path=doc/guide/md/basics/for.md
+     *
+     * @param documentationPage the page to generate the script for
+     * @return the script
+     */
+    private static String generateDebugScript(File mdRootDir, DocumentationPage documentationPage) {
+        return "    console.log(\"test\");const debugButton = document.createElement('a');\n" +
+               "    debugButton.style.position = 'fixed';\n" +
+                "    debugButton.style = 'position: fixed; top: 20px; right: 30px; z-index: 1000; background-color: #355877; color: #dbdbdb; padding: 10px 20px; cursor: pointer; border-radius: 5px;';\n" +
+               "    debugButton.href = 'jetbrains://idea/navigate/reference?project=menter-lang-docs&path=doc/guide/md/" + getFilePathRelative(mdRootDir, documentationPage.getOriginFile()) + "';\n" +
+               "    debugButton.innerText = 'Open in IDE';\n" +
+               "    document.body.appendChild(debugButton);";
+    }
+
+    private static String getFilePathRelative(File mdRootDir, File file) {
+        return mdRootDir.toPath().relativize(file.toPath()).toString().replace("\\", "/");
     }
 
     public static void upload(File localBaseDir, String remoteBaseDir, String remoteHost, String remoteUser, String remotePassword) throws IOException {
