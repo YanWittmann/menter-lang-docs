@@ -109,9 +109,9 @@ value = (() -> { # anonymous function, new scope
 If you are new to Menter, it is recommended to start using the semicolon syntax, as the newline-based one might be
 confusing at first.
 
-Although it may seem unusual, the newline-based syntax was adopted in Menter because the language was designed to
-replace the old expression evaluator in the [Launch Anything Bar](https://github.com/YanWittmann/launch-anything), where 
-code needed to be written in a single line.  
+The language was designed to replace the old expression evaluator in the
+[Launch Anything Bar](https://github.com/YanWittmann/launch-anything), where code needed to be written in a single
+line.  
 However, I also wanted to allow Menter to be used for other purposes, such as writing small scripts. The newline-based
 separation of statements is an interesting approach to solve the statement separation problem, even though it is not
 perfect. Therefore, Menter allows the use of both newlines and semicolons.
