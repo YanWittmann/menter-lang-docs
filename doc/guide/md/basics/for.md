@@ -37,10 +37,10 @@ To learn more about how this works internally, read the chapter about [value mar
 
 Anything that implements an `iterator()` method is iterable.
 
-It is recommended to have a local Menter server running whilst viewing some of the code boxes below, as the print output
-cannot be seen otherwise.
+Iterators can be called manually and return themselves when called again.
 
-Iterators can actually be called manually and return themselves when called again.
+> It is recommended to have a local Menter server running whilst viewing some of the code boxes below, as the print
+> output cannot be seen otherwise.
 
 ```result=<<iterator>>
 "str".iterator();;;"str".iterator().forEach(print)
@@ -50,7 +50,7 @@ Let's go over some of the primitive types that are iterable:
 
 ### List
 
-Lists simply iterate over all contained elements:
+Lists iterate over all contained elements:
 
 ```result=0;;;3;;;6
 sum = 0;;;for (i in [0, 1, 2])
@@ -79,7 +79,7 @@ obj = {a: 2, b: 8, c: 64};;;for (value in obj)
 
 ### String
 
-Strings simply iterate over all their characters, in order of appearance.
+Strings iterate over all their characters, in order of appearance.
 
 ```result=null
 "Hello".forEach(print)

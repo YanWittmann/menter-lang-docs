@@ -6,11 +6,10 @@ structure.
 Import and export statements are discovered by Menter before any code is executed, for several reasons:
 
 - Import resolution order
-- Discover available modules before executing them
+- Running all code, even if it won't be imported is not something we want
 
-More on those topics later.
-
-This also means, that you cannot use evaluate-able expressions in import and export statements.
+Seeing how the contents are statically parsed at first, you cannot use expressions in import and export statements that
+would have to be evaluated first.
 
 ## Exporting Modules
 

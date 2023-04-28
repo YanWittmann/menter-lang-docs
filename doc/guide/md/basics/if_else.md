@@ -1,11 +1,10 @@
 # Conditions: if / else if / else
 
-Branching is done, just like with most languages, using the `if` statement. The `if` statement is followed by a
-condition and a code block. If the condition is `true`, the code block is executed. If the condition is `false`, the
-code block is skipped.
+Branching is done using the `if` statement. The `if` statement is followed by a condition and a code block. If the
+condition is `true`, the code block is executed, if it is `false`, the code block is skipped.
 
 The `else if`/`elif` and `else` statements are optional. They can be used to add more conditions and a default code
-block. Note that you can use either `else if` or `elif`, depending on your preference, I will be using the `elif`
+block. Note that you can use either `else if` or `elif`, depending on your preference. I will be using the `elif`
 keyword.
 
 Syntax:
