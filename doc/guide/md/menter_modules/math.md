@@ -80,6 +80,10 @@ logarithm of a number.
 log(100, 10);;;log(10, 10);;;ln(E)
 ```
 
+### toNumber
+
+The toNumber method will convert a string to a number. If the string cannot be converted, an error will be thrown.
+
 ### Constants
 
 The math module also contains the constants PI and E.
