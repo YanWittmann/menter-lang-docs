@@ -133,6 +133,7 @@ public class DocumentationGenerator {
         // copy files to output directory
         Arrays.stream(new File[]{
                 new File(guideBaseDir, "index.html"),
+                new File(guideBaseDir, "google186613694927a5b5.html"),
         }).forEach(file -> {
             try {
                 FileUtils.copyFileToDirectory(file, targetBaseDir);
