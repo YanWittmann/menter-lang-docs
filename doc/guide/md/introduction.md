@@ -40,7 +40,7 @@ After building and installing the Java library yourself using maven, you can add
 <dependency>
     <groupId>de.yanwittmann</groupId>
     <artifactId>menter-lang</artifactId>
-    <version>version</version>
+    <version>{{ property: menter-version }}</version>
 </dependency>
 ```
 

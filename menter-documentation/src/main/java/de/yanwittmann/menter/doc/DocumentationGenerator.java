@@ -87,6 +87,8 @@ public class DocumentationGenerator {
     private static void developmentAccess(File guideBaseDir, File targetBaseDir, File structureFile, File templateFile) {
         final HashMap<String, String> externalProperties = new HashMap<String, String>() {{
             put("menter-dir", "D:/files/create/programming/projects/menter-lang-project-copy");
+            put("hosted-root-dir", "https://yanwittmann.github.io/menter-lang-docs/");
+            put("menter-version", "1.0-SNAPSHOT");
         }};
         try {
             generate(guideBaseDir, targetBaseDir, templateFile, structureFile, externalProperties);
@@ -131,10 +133,11 @@ public class DocumentationGenerator {
         });
 
         // copy files to output directory
-        Arrays.stream(new File[]{
+        final File[] individualFiles = {
                 new File(guideBaseDir, "index.html"),
                 new File(guideBaseDir, "google186613694927a5b5.html"),
-        }).forEach(file -> {
+        };
+        Arrays.stream(individualFiles).forEach(file -> {
             try {
                 FileUtils.copyFileToDirectory(file, targetBaseDir);
             } catch (IOException e) {
@@ -182,6 +185,10 @@ public class DocumentationGenerator {
             indexArray.put(documentationPage.toIndexObject());
         }
         FileUtils.write(new File(targetBaseDir, "chapters.json"), indexArray.toString(), StandardCharsets.UTF_8);
+
+        // generate a sitemap
+        final SitemapGenerator sitemapGenerator = new SitemapGenerator("https://yanwittmann.github.io/menter-lang-docs/", documentationPages, individualFiles);
+        FileUtils.write(new File(targetBaseDir, "sitemap.xml"), sitemapGenerator.generate(), StandardCharsets.UTF_8);
     }
 
     private static String formatSpecialCharacters(String str) {
