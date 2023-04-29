@@ -11,7 +11,14 @@ public class SitemapGenerator {
     private final List<String> urls;
 
     public SitemapGenerator(String baseUrl, List<DocumentationPage> documentationPages, File[] additionalRootFiles) {
-        this.baseUrl = baseUrl;
+        if (baseUrl == null || baseUrl.isEmpty()) {
+            throw new IllegalArgumentException("Base url must not be null or empty!");
+        } else if (!baseUrl.endsWith("/")) {
+            this.baseUrl = baseUrl + "/";
+        } else {
+            this.baseUrl = baseUrl;
+        }
+
         this.urls = generateUrls(documentationPages, additionalRootFiles);
     }
 

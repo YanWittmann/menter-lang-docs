@@ -187,7 +187,7 @@ public class DocumentationGenerator {
         FileUtils.write(new File(targetBaseDir, "chapters.json"), indexArray.toString(), StandardCharsets.UTF_8);
 
         // generate a sitemap
-        final SitemapGenerator sitemapGenerator = new SitemapGenerator("https://yanwittmann.github.io/menter-lang-docs/", documentationPages, individualFiles);
+        final SitemapGenerator sitemapGenerator = new SitemapGenerator(externalProperties.get("hosted-root-dir"), documentationPages, individualFiles);
         FileUtils.write(new File(targetBaseDir, "sitemap.xml"), sitemapGenerator.generate(), StandardCharsets.UTF_8);
     }
 
