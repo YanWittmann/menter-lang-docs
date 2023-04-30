@@ -1,5 +1,8 @@
 # debug.mtr
 
+> content.description: The 'debug' module provides functions for debugging purposes, including the 'breakFlow' function to break program execution
+> content.keywords: debug module, debugging functions, breakFlow, execution flow, visual debugger, debugger mode, debugging, programming
+
 ```static
 {{ file: {{ property: menter-dir }}/src/main/resources/src/debug.mtr }}
 ```

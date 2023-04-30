@@ -1,5 +1,8 @@
 # cmdplot.mtr
 
+> content.description: cmdplot module for displaying plots and tables in the console
+> content.keywords: cmdplot, console plots, console tables, plot function, table function
+
 ```static
 {{ file: {{ property: menter-dir }}/src/main/resources/src/cmdplot.mtr }}
 ```

@@ -1,5 +1,8 @@
 # Modules
 
+> content.description: Learn how to export and import modules in Menter for code reuse and modular structure
+> content.keywords: Menter modules, code reuse, modular structure, import modules, export modules
+
 Menter allows for exporting modules, which can be imported by other files. This allows for code reuse and a modular
 structure.
 

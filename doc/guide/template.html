@@ -2,7 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Menter Guide</title>
+    <title>{{ content.title }}</title>
+
+    <meta name="description" content="{{ content.description }}">
+    <meta name="keywords" content="{{ content.keywords }}">
+    <meta name="author" content="{{ content.author }}">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="1 Month">
+    <meta name="language" content="English">
+
+    <meta property="og:title" content="{{ content.title }}">
+    <meta property="og:description" content="{{ content.description }}">
+    <meta property="og:image" content="https://yanwittmann.github.io/menter-lang-docs/img/navbar_icon_main_page.webp">
+    <meta property="og:url" content="https://yanwittmann.github.io/menter-lang-docs/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Menter Guide">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">

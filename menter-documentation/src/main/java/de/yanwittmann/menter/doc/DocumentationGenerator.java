@@ -171,6 +171,16 @@ public class DocumentationGenerator {
                     }
                 } else if (line.contains("{{ content.sidebar }}")) {
                     outLines.set(i, line.replace("{{ content.sidebar }}", sidebarContent));
+
+                } else if (line.contains("{{ content.author }}")) {
+                    outLines.set(i, line.replace("{{ content.author }}", "Yan Wittmann"));
+                } else if (line.contains("{{ content.keywords }}")) {
+                    outLines.set(i, line.replace("{{ content.keywords }}", "menter, " + String.join(", ", documentationPage.getKeywords())));
+                } else if (line.contains("{{ content.description }}")) {
+                    outLines.set(i, line.replace("{{ content.description }}", documentationPage.getDescription()));
+                } else if (line.contains("{{ content.title }}")) {
+                    outLines.set(i, line.replace("{{ content.title }}", documentationPage.getTitle() + " - Menter Guide"));
+
                 } else if (line.contains("{{ script.js }}")) {
                     outLines.set(i, line.replace("{{ script.js }}", additionalJsContent
                                                                     + (DEVELOPMENT_MODE ? generateDebugScript(structureFile.getParentFile(), documentationPage) : "")));

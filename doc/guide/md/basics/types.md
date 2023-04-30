@@ -1,5 +1,8 @@
 # Types / Classes
 
+> content.description: Understanding 'self' and 'super' in Menter custom types, creating types with constructors and attributes
+> content.keywords: custom types, self and super, type constructors, type attributes, type inheritance, $init constructor, $fields attribute, $extends inheritance
+
 > This chapter is about custom types written natively in Menter. See [Java Types](Java_custom_java_types.html) for more
 > information about custom types written in Java.
 

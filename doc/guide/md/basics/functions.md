@@ -1,5 +1,8 @@
 # Functions
 
+> content.description: Learn about functions in Menter, a functional language, including function declaration, argument list, return value, and native functions
+> content.keywords: functions, function declaration, expression assignment, arrow functions, argument list, return value, native functions, functional language
+
 If you visited the chapters before this one, you may have seen how functions work in Menter. Seeing how Menter is a
 functional language, functions are first-class citizens and can therefore be stored in variables or passed around as
 arguments to other functions.

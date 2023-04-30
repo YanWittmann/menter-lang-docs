@@ -1,5 +1,8 @@
 # Operator list
 
+> content.description: Learn about the operators in Menter
+> content.keywords: Menter, operators, precedence
+
 Operators are listed in the order of precedence, from highest to lowest.
 
 Understandably, you may skip over most of this. I would recommend however that you at least check out the bottom part of

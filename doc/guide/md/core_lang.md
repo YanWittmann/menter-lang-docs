@@ -1,5 +1,8 @@
 # Core language
 
+> content.description: Learn the syntax and principles of Menter, a core language for programming
+> content.keywords: core language, syntax, principles, programming, foldl, primitive types, documentation
+
 Let's start with a quick overview of the core language. The following chapters are made to make you familiar with the
 syntax and principles of Menter.
 

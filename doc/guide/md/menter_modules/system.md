@@ -1,5 +1,8 @@
 # system.mtr
 
+> content.description: Learn about the system.mtr file and its methods for printing, retrieving system properties, environment variables, and pausing execution
+> content.keywords: system.mtr, print, getProperty, getEnv, sleep, JAVA_HOME, execution pause, system properties, environment variables
+
 ```static
 {{ file: {{ property: menter-dir }}/src/main/resources/src/system.mtr }}
 ```

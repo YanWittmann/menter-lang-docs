@@ -1,5 +1,8 @@
 # For loop
 
+> content.description: Learn about for each loops and iteration in Menter. Use continue and break keywords, iterate over lists, objects, and strings, and make custom Java types iterable
+> content.keywords: for loop, iteration, for each loop, continue keyword, break keyword, iterable, forEach method, list iteration, object iteration, string iteration, custom Java type iteration
+
 Similar to Python, Menter does not know traditional indexed 'for' loops, only 'for each' loops.
 
 Syntax:

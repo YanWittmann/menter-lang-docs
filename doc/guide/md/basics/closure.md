@@ -1,5 +1,8 @@
 # Variable scope and Closure
 
+> content.description: Learn how Menter implements variable scope and closure, and how to create effectively private variables using closures
+> content.keywords: variable scope, closure, private variables, Menter, local variables, function scope, persistent local variable, encapsulation, programming conventions, encapsulated data
+
 Variable scope and closure are important concepts in programming, and Menter uses them to manage local variables and
 functions. In this documentation entry, we'll explain how Menter implements variable scope and closure, and how you can
 use it to create effectively private variables.

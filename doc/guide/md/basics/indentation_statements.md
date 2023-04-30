@@ -1,5 +1,8 @@
 # Indentation and Statements
 
+> content.description: Learn about Menter's combination of indentation-based and semicolon-based syntax for statement separation and code blocks
+> content.keywords: Menter, indentation-based syntax, semicolon-based syntax, statement separation, code blocks, Python, Java, syntax, newlines, semicolons
+
 Menter combines parts of the indentation-based syntax of Python with the semicolon-based syntax of other languages like
 Java.
 

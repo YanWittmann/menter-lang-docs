@@ -1,5 +1,8 @@
 # Basic Types and Values
 
+> content.description: Learn about the basic types and values in Menter, including numbers, strings, objects, lists, functions, and regular expressions
+> content.keywords: basic types, numbers, strings, objects, lists, functions, regular expressions, data types
+
 Menter includes a variety of basic data types such as numbers, strings, booleans, lists and objects.  
 Values are the smallest building block everything else is made of: Every expression can be evaluated into a single
 value, even control structures like `if`, `for`, and so on.
@@ -77,4 +80,26 @@ functions as arguments to other functions.
 
 ```result=(a, b) -> { a + b };;;(f, a, b) -> { f(a, b) };;;3
 add = (a, b) -> a + b;;;apply = (f, a, b) -> f(a, b);;;apply(add, 1, 2)
+```
+
+
+## Regular Expressions `regex` and matchers `matcher`
+
+Menter supports regular expressions in a way similar to JavaScript defines them, with all functions that are available
+in Java. A pattern is defined by enclosing it in forward slashes (`/`) with a leading `r` character and trailing flags.
+
+```result=Age: (.+);;;true;;;42
+agePattern = r/Age: (.+)/i;;;"Age: 42".matches(agePattern);;;"Age: 42".replace(agePattern, "$1")
+```
+
+A matcher is returned by calling the `matcher` function on a string with a pattern as argument.
+
+```result=Age: (\d+).*?;;;[42, 65];;;[[Age: 42, 42], [Age: 65, 65]];;;[Age: 42, 42] [Age: 65, 65]
+matcher = r/Age: (\d+).*?/i.matcher("Age: 42, Age: 65");;;# using regular find() method
+matches = []
+while (matcher.find()) matches ::= matcher.group(1);;;# using the dedicated method
+matcher.reset()
+matcher.groups();;;# using iterator
+matcher.reset()
+for (match in matcher) print(match)
 ```

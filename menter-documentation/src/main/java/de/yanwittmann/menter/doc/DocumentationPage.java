@@ -12,13 +12,12 @@ import j2html.tags.specialized.DivTag;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -31,6 +30,8 @@ public class DocumentationPage {
     private DocumentationPage parent;
     private final List<DocumentationPage> subPages = new ArrayList<>();
     private String title;
+    private String description;
+    private String[] keywords;
     private Node content;
 
     public DocumentationPage(File originFile) {
@@ -57,6 +58,7 @@ public class DocumentationPage {
         for (String line : input) {
             while (true) {
                 final String trimmedLine = line.trim();
+
                 final Matcher matcher = VARIABLE_PATTERN.matcher(trimmedLine);
 
                 if (!matcher.find()) break;
@@ -87,6 +89,14 @@ public class DocumentationPage {
                 } else {
                     throw new IllegalArgumentException("Unknown variable type " + variableType + "!");
                 }
+            }
+
+            if (line.startsWith("> content.description: ")) {
+                description = line.substring("> content.description: ".length());
+                continue;
+            } else if (line.startsWith("> content.keywords: ")) {
+                keywords = line.substring("> content.keywords: ".length()).split(", ");
+                continue;
             }
 
             output.add(line);
@@ -256,6 +266,39 @@ public class DocumentationPage {
                 .withClass("sidebar-menu-item");
     }
 
+    public String getDescription() {
+        if (this.description == null) {
+            return "➔ A functional programming language written in Java.";
+        }
+        if (this.description.length() > 140) {
+            System.out.println("Description of " + title + " is too long! (" + this.description.length() + " chars)");
+        }
+        return description;
+    }
+
+    public String[] getKeywords() {
+        if (this.keywords == null) {
+            return new String[]{"functional", "programming", "language", "java"};
+        }
+        return keywords;
+    }
+
+    public List<String> getTitles() {
+        final List<String> titles = new ArrayList<>();
+        // iterate all lines and find all titles
+        try (final BufferedReader reader = new BufferedReader(new FileReader(originFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("#")) {
+                    titles.add(line.replaceFirst("#+", "").trim());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return titles;
+    }
+
     @Override
     public String toString() {
         return (parent != null ? parent.title + " >> " : "") + title;
@@ -265,6 +308,12 @@ public class DocumentationPage {
         final JSONObject object = new JSONObject();
         object.put("title", title);
         object.put("file", getOutFileName());
+        object.put("description", getDescription());
+
+        final List<String> extendedKeywords = new ArrayList<>(Arrays.asList(getKeywords()));
+        extendedKeywords.addAll(getTitles());
+        object.put("keywords", extendedKeywords);
+
         if (subPages.size() > 0) {
             final List<JSONObject> subPagesObjects = subPages.stream()
                     .map(DocumentationPage::toIndexObject)

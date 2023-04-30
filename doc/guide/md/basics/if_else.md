@@ -1,5 +1,8 @@
 # Conditions: if / else if / else
 
+> content.description: Learn about branching in programming using if, else if, and else statements
+> content.keywords: if statement, else if statement, elif statement, else statement, branching, conditions, code block, ternary operator
+
 Branching is done using the `if` statement. The `if` statement is followed by a condition and a code block. If the
 condition is `true`, the code block is executed, if it is `false`, the code block is skipped.
 

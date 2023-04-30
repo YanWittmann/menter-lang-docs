@@ -1,5 +1,8 @@
 # Running Menter Code
 
+> content.description: How to run Menter code from the command line and how to use the Menter Java library.
+> content.keywords: run Menter code, command line application, Menter Java library, installing Menter, script file, run code from command line, REPL, MENTER_HOME, documentation code boxes, guide server, troubleshooting code boxes
+
 This chapter will cover how to run the command line application. Also learn
 [how to use the Menter Java library](Java_getting_started.html).
 

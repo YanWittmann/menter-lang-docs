@@ -1,5 +1,8 @@
 # Operators
 
+> content.description: Learn about operators and operator functions in Menter
+> content.keywords: operators, operator functions, compound assignment operator, interval syntax, Python power operator, programming language operators
+
 Operators use the precedence from [Java](https://introcs.cs.princeton.edu/java/11precedence/), with the exception of the
 power operator, which comes from Python.
 
