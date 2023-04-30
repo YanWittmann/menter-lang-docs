@@ -641,3 +641,7 @@ blockquote {
         filter: invert(12%) sepia(41%) saturate(2131%) hue-rotate(17deg) brightness(92%) contrast(91%);
     }
 }
+
+.hidden {
+    display: none;
+}
