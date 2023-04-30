@@ -23,6 +23,9 @@ Modules >> modules.md
     cmdplot.mtr >> menter_modules/cmdplot.md
     reflect.mtr >> menter_modules/reflect.md
 
+Advanced >> advanced.md
+    Type Functions >> advanced/type_functions.md
+
 Java >> java.md
     Getting started >> java/getting_started.md
     Types >> java/custom_java_types.md

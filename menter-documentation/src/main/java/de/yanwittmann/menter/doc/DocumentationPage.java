@@ -17,7 +17,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -273,7 +276,7 @@ public class DocumentationPage {
         if (this.description.length() > 140) {
             System.out.println("Description of " + title + " is too long! (" + this.description.length() + " chars)");
         }
-        return description;
+        return this.description + (this.description.endsWith(".") ? "" : ".");
     }
 
     public String[] getKeywords() {

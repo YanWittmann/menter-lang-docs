@@ -1,6 +1,6 @@
 # While loop
 
-> content.description: Learn about while loops and their usage
+> content.description: Learn about while loops and their usage in Menter
 > content.keywords: while loop, programming, code block, condition, execution
 
 While loops function just the way they do in other languages. As long as a certain condition is `true`, the code block
