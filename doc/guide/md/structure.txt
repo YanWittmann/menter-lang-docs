@@ -12,8 +12,6 @@ Core Language >> core_lang.md
     For loop / iterator >> basics/for.md
     While loop >> basics/while.md
     Functions >> basics/functions.md
-    Closure >> basics/closure.md
-    Types >> basics/types.md
 
 Modules >> modules.md
     system.mtr >> menter_modules/system.md
@@ -24,7 +22,10 @@ Modules >> modules.md
     reflect.mtr >> menter_modules/reflect.md
 
 Advanced >> advanced.md
+    Closure >> advanced/closure.md
+    Types >> advanced/types.md
     Type Functions >> advanced/type_functions.md
+    Examples >> advanced/examples.md
 
 Java >> java.md
     Getting started >> java/getting_started.md

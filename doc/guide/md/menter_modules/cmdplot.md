@@ -43,7 +43,6 @@ height = 12;;;plot(
 )
 ```
 
-
 #### Some more examples
 
 Two functions in one plot:

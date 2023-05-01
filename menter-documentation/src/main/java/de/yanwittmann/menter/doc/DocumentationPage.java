@@ -58,7 +58,9 @@ public class DocumentationPage {
 
         final List<String> output = new ArrayList<>();
 
-        for (String line : input) {
+        for (int i = 0; i < input.size(); i++) {
+            String line = input.get(i);
+
             while (true) {
                 final String trimmedLine = line.trim();
 
@@ -95,10 +97,16 @@ public class DocumentationPage {
             }
 
             if (line.startsWith("> content.description: ")) {
-                description = line.substring("> content.description: ".length());
+                // description = line.substring("> content.description: ".length());
+                final Pair<String, Integer> result = collectDocumentMetadata(input, i, "content.description:");
+                description = result.getLeft();
+                i = result.getRight();
                 continue;
             } else if (line.startsWith("> content.keywords: ")) {
-                keywords = line.substring("> content.keywords: ".length()).split(", ");
+                // keywords = line.substring("> content.keywords: ".length()).split(", ");
+                final Pair<String, Integer> result = collectDocumentMetadata(input, i, "content.keywords:");
+                keywords = result.getLeft().split(", ");
+                i = result.getRight();
                 continue;
             }
 
@@ -106,6 +114,27 @@ public class DocumentationPage {
         }
 
         return output;
+    }
+
+    /**
+     * Collects all lines that start with "> " and do not continue with "content."
+     *
+     * @param lines      The lines to collect from
+     * @param lineNumber The line number to start at
+     * @return A pair of the collected string and the line number of the last line that was collected
+     */
+    private Pair<String, Integer> collectDocumentMetadata(List<String> lines, int lineNumber, String prefix) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        for (int i = lineNumber; i < lines.size(); i++) {
+            final String line = lines.get(i);
+            if (line.startsWith("> ") && (lineNumber == i || !line.startsWith("> content."))) {
+                if (stringBuilder.length() > 0) stringBuilder.append(" ");
+                stringBuilder.append(line.substring("> ".length()));
+            } else {
+                return Pair.of(stringBuilder.toString().replace(prefix, "").trim(), i - 1);
+            }
+        }
+        return Pair.of(stringBuilder.toString().replace(prefix, "").trim(), lines.size());
     }
 
     public void setTitle(String title) {

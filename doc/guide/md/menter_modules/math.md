@@ -1,7 +1,8 @@
 # math.mtr
 
 > content.description: The math module provides various mathematical methods for calculations
-> content.keywords: range, space, sin, cos, tan, asin, acos, atan, random, round, floor, ceil, abs, sqrt, root, log, ln, toNumber, constants
+> content.keywords: range, space, sin, cos, tan, asin, acos, atan, random, round, floor, ceil, abs, sqrt, root, log, ln,
+> toNumber, constants
 
 ```static
 {{ file: {{ property: menter-dir }}/src/main/resources/src/math.mtr }}

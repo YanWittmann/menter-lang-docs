@@ -1,7 +1,8 @@
 # Menter Guide
 
 > content.description: Learn the fundamentals of Menter, a simple and easy-to-use programming language built in Java
-> content.keywords: Menter guide, Menter programming language, Java, command line tool, Java library, programming basics, examples, download, documentation
+> content.keywords: Menter guide, Menter programming language, Java, command line tool, Java library, programming
+> basics, examples, download, documentation
 
 ## Introduction
 

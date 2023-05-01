@@ -1,6 +1,7 @@
 # Basic Types and Values
 
-> content.description: Learn about the basic types and values in Menter, including numbers, strings, objects, lists, functions, and regular expressions
+> content.description: Learn about the basic types and values in Menter, including numbers, strings, objects, lists,
+> functions, and regular expressions
 > content.keywords: basic types, numbers, strings, objects, lists, functions, regular expressions, data types
 
 Menter includes a variety of basic data types such as numbers, strings, booleans, lists and objects.  
@@ -60,7 +61,7 @@ according keys are created:
 person.name = "Yan";;;person.interests = []  # required for the next line to work;;;person.interests[0] = "Programming"
 ```
 
-There are more features connected to objects, but more on those in the [Types](Core_Language_types.html) section.
+There are more features connected to objects, but more on those in the [Types](Advanced_types.html) section.
 
 ## Functions `function`, `value_function`, `native_function`, `reflective_function`
 
@@ -81,7 +82,6 @@ functions as arguments to other functions.
 ```result=(a, b) -> { a + b };;;(f, a, b) -> { f(a, b) };;;3
 add = (a, b) -> a + b;;;apply = (f, a, b) -> f(a, b);;;apply(add, 1, 2)
 ```
-
 
 ## Regular Expressions `regex` and matchers `matcher`
 

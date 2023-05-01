@@ -76,3 +76,6 @@ imported no matter where you currently are.
 
 These modules will show a code box at the top that shows the source code of the module. This is useful to see how the
 module is implemented and how you can use it.
+
+> The source code shown there _is actually_ the source code, as it currently is on the main branch of the Menter
+> repository.
