@@ -92,6 +92,7 @@ public class DocumentationGenerator {
         }};
         try {
             generate(guideBaseDir, targetBaseDir, templateFile, structureFile, externalProperties);
+            System.out.println("Files available at: " + new File(targetBaseDir, "index.html").getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
