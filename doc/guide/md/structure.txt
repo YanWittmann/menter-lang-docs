@@ -29,5 +29,5 @@ Advanced >> advanced.md
 
 Java >> java.md
     Getting started >> java/getting_started.md
-    Types >> java/custom_java_types.md
+    Types / native >> java/custom_java_types.md
     Value markers >> java/value_markers.md

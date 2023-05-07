@@ -148,15 +148,20 @@ function createStyleHighlightsForText(text, lang = "menter") {
         ];
 
         if (isJava) {
-            keywords.push("public", "private", "protected", "class", "void", "abstract", "extends", "implements");
+            keywords.push("public", "private", "protected", "class", "void", "abstract", "extends", "implements",
+                "static", "try", "catch", "finally", "throw", "throws", "super", "this", "interface", "enum", "package",
+                "import", "final", "const", "goto", "synchronized", "transient", "volatile", "strictfp", "native",
+                "assert", "instanceof", "null", "true", "false", "boolean", "byte", "char", "short", "int", "long");
             keywords_alt.push("@Override", "@TypeFunction", "@TypeMetaData", "Value", "ArrayList", "List", "Arrays",
-                "String", "CustomType")
+                "String", "CustomType", "System", "EvaluationContext", "EvaluationContextLocalInformation", "GlobalContext",
+                "MenterInterpreter", "Operator", "Operators", "println", "Class", "ClassNotFoundException ", "LOG",
+                "CoreModuleMath", "RoundingMode", "MenterDebugger", "Exception", "BigDecimal");
         }
 
         identifiers = text.match(/[a-zA-Z]+/g);
         numbers = text.match(/-?\d+(\.\d+)?/g);
         strings = text.match(/["'].*?["']/g);
-        comments = text.match(/###(.|\n)*?###|#.*?(\n|$)/g);
+        comments = isJava ? comments = text.match(/###(.|\n)*?###|#.*?(\n|$)|\/\/.*/g) : text.match(/###(.|\n)*?###|#.*?(\n|$)/g);
     } else if (isXml) {
         xmlTags = text.match(/<\/?[a-zA-Z]+.*?>/g);
     }

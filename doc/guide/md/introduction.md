@@ -16,6 +16,8 @@ This guide will:
 
 By the end, you should be able to create your own programs in Menter.
 
+Navigate between pages using the arrow keys or the bar on the left.
+
 ## A Quick Sample
 
 Here's a small program that creates an array, maps them to new values and filters them:
@@ -29,7 +31,11 @@ Did you know that you can make these code boxes interactive by running a local M
 
 ## Getting Started
 
-### Download/Build
+- ### [Menter as CLI tool](execute_code.html)
+
+- ### [Menter as Java Library](Java_getting_started.html)
+
+## Download/Build
 
 Both the command line tool and the Java library are available via:
 
@@ -48,4 +54,3 @@ After building and installing the Java library yourself using maven, you can add
 </dependency>
 ```
 
-Navigate between pages using the arrow keys or the bar on the left.

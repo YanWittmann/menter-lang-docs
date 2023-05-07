@@ -131,6 +131,7 @@ public class MyIterableType extends CustomType {
     @TypeFunction
     public Value addValue(List<Value> parameters) {
         parameters.forEach(param -> asStrings.add(new Value(param.toString())));
+        return Value.empty();
     }
 
     @Override
